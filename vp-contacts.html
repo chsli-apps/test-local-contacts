@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CH VP Contacts</title>
+    <!-- Home screen app settings (iOS: Share > Add to Home Screen). -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="CH VP Contacts" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#002d97" />
+    <!-- 180x180 PNG icon embedded so the app stays a single file. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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" />
+    <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+    <style>
+      /* Brand tokens: same palette and scale as the iOS app (CHColor, CHSpacing). */
+      :root {
+        --ch-font-primary: "Merriweather Sans", Arial, sans-serif;
+        --ch-navy: #002d97;
+        --ch-blue: #005ae8;
+        --ch-midnight: #001d66;
+        --ch-wine: #81008a;
+        --ch-gold: #e6ae03;
+        --ch-border: #e5e7eb;
+        --ch-background: #ffffff;
+        --ch-space-1: 4px;
+        --ch-space-2: 8px;
+        --ch-space-3: 12px;
+        --ch-space-4: 16px;
+        --ch-space-6: 32px;
+        --ch-radius-lg: 8px;
+        --ch-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--ch-font-primary);
+        font-weight: 400;
+        color: var(--ch-navy);
+        background: var(--ch-background);
+        font-variant-numeric: lining-nums tabular-nums;
+        line-height: 1.5;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: var(--ch-background);
+        padding: var(--ch-space-4) var(--ch-space-4) var(--ch-space-3);
+        border-bottom: 1px solid var(--ch-border);
+      }
+
+      .app-name {
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--ch-midnight);
+      }
+
+      .screen-name {
+        margin: var(--ch-space-1) 0 var(--ch-space-3);
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--ch-navy);
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: var(--ch-space-2);
+        min-height: 44px;
+        padding: 0 var(--ch-space-3);
+        background: var(--ch-background);
+        border: 1px solid var(--ch-border);
+        border-radius: var(--ch-radius-lg);
+        box-shadow: var(--ch-shadow-sm);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      .search:focus-within {
+        outline: 2px solid var(--ch-blue);
+        outline-offset: 2px;
+      }
+
+      .search input {
+        flex: 1;
+        min-width: 0;
+        border: 0;
+        outline: none;
+        background: transparent;
+        font: inherit;
+        font-size: 1rem;
+        color: var(--ch-navy);
+      }
+
+      .search input::placeholder {
+        color: var(--ch-midnight);
+        opacity: 0.7;
+      }
+
+      .clear-button {
+        border: 0;
+        background: transparent;
+        padding: var(--ch-space-1);
+        font: inherit;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--ch-blue);
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .clear-button:hover {
+        color: var(--ch-navy);
+      }
+      .clear-button:focus-visible {
+        outline: 2px solid var(--ch-blue);
+        outline-offset: 2px;
+      }
+
+      main {
+        padding: 0 var(--ch-space-4) var(--ch-space-6);
+      }
+
+      /* Row layout: name/title block on the left, phone buttons stacked on the right.
+       No wrapping at any width: the name block shrinks and its text wraps instead. */
+      .contact {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--ch-space-3);
+        padding: var(--ch-space-3) 0;
+        border-bottom: 1px solid var(--ch-border);
+      }
+
+      .contact-info {
+        flex: 1 1 0;
+        min-width: 0;
+      }
+
+      .contact-name {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--ch-navy);
+      }
+
+      .contact-title {
+        margin: var(--ch-space-1) 0 0;
+        font-size: 0.875rem;
+        color: var(--ch-midnight);
+      }
+
+      /* Phones stack vertically, one per row; the column never shrinks below its content. */
+      .phones {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 auto;
+        gap: 0;
+      }
+
+      /* Each phone is a single row: label on the left, number on the right. */
+      .phone-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--ch-space-2);
+        white-space: nowrap;
+        min-height: 44px;
+        padding: var(--ch-space-1) var(--ch-space-3);
+        border-radius: var(--ch-radius-lg);
+        border: 0;
+        background: var(--ch-background);
+        color: var(--ch-blue);
+        text-decoration: none;
+      }
+
+      /* Light gray divider between the two phones; only the second one gets it. */
+      .phone-link + .phone-link {
+        border-top: 1px solid var(--ch-border);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .phone-link:hover {
+        color: var(--ch-navy);
+      }
+      .phone-link:focus-visible {
+        outline: 2px solid var(--ch-blue);
+        outline-offset: 2px;
+      }
+      .phone-link:active {
+        color: var(--ch-navy);
+      }
+
+      .phone-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--ch-midnight);
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      .phone-number {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .phone-note {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: var(--ch-midnight);
+      }
+
+      .empty {
+        padding: var(--ch-space-6) 0;
+        text-align: center;
+        color: var(--ch-midnight);
+      }
+
+      .load-error {
+        margin: var(--ch-space-4);
+        padding: var(--ch-space-3);
+        border: 1px solid var(--ch-wine);
+        border-radius: var(--ch-radius-lg);
+        color: var(--ch-wine);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="app-name">Catholic Health Emergency Contacts</p>
+      <h1 class="screen-name">VP Contacts</h1>
+      <label class="search">
+        <span class="sr-only">Search VP contacts</span>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search name or title"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
+        <button id="clear-button" class="clear-button" type="button" hidden>
+          Clear
+        </button>
+      </label>
+    </header>
+
+    <main>
+      <div id="load-error" class="load-error" hidden></div>
+      <div id="contact-list"></div>
+      <p id="empty-message" class="empty" hidden>No matching contacts.</p>
+    </main>
+
+    <!--
+    Contact data. Same shape as the app's Resources/Seed/leadership.json.
+    Sample entries only: 516-555-01xx numbers are reserved for examples.
+    Replace this array with the real VP list.
+  -->
+    <script id="contacts-data" type="application/json">
+      [
+        {
+          "name": "Sample VP One",
+          "title": "VP Sample Division",
+          "phones": [
+            { "label": "mobile", "raw": "516-555-0101", "note": null },
+            { "label": "office", "raw": "516-555-0102", "note": null }
+          ]
+        },
+        {
+          "name": "Sample VP Two",
+          "title": "VP Sample Operations",
+          "phones": [{ "label": "office", "raw": "516-555-0103" }]
+        }
+      ]
+    </script>
+
+    <script>
+      // Phone numbers arrive as free text ("516-761-1592", "1-516-705-3850"). Normalize to a
+      // display form and a tel: form; return null for anything that is not a 10-digit US number.
+      function normalizePhone(raw) {
+        var digits = String(raw || "").replace(/\D/g, "");
+        if (digits.length === 11 && digits.charAt(0) === "1") {
+          digits = digits.slice(1);
+        }
+        if (digits.length !== 10) {
+          return null;
+        }
+        return {
+          display:
+            "(" +
+            digits.slice(0, 3) +
+            ") " +
+            digits.slice(3, 6) +
+            "-" +
+            digits.slice(6),
+          dialable: "+1" + digits,
+        };
+      }
+
+      function loadContacts() {
+        var text = document.getElementById("contacts-data").textContent;
+        var parsed = JSON.parse(text);
+        if (!Array.isArray(parsed)) {
+          throw new Error("Contact data must be an array.");
+        }
+        return parsed;
+      }
+
+      // Keep only contacts with a name and at least one dialable phone, so the list never shows blanks.
+      function prepareContacts(raw) {
+        var result = [];
+        raw.forEach(function (entry) {
+          var name = String(entry.name || "").trim();
+          if (!name) {
+            return;
+          }
+          var phones = [];
+          (entry.phones || []).forEach(function (phone) {
+            var normalized = normalizePhone(phone.raw);
+            if (normalized) {
+              phones.push({
+                label: String(phone.label || "other"),
+                note: phone.note ? String(phone.note).trim() : "",
+                display: normalized.display,
+                dialable: normalized.dialable,
+              });
+            }
+          });
+          result.push({
+            name: name,
+            title: String(entry.title || "").trim(),
+            phones: phones,
+            searchText: (name + " " + (entry.title || "")).toLowerCase(),
+          });
+        });
+        return result;
+      }
+
+      function buildContactElement(contact) {
+        var wrapper = document.createElement("article");
+        wrapper.className = "contact";
+
+        var info = document.createElement("div");
+        info.className = "contact-info";
+
+        var name = document.createElement("h2");
+        name.className = "contact-name";
+        name.textContent = contact.name;
+        info.appendChild(name);
+
+        if (contact.title) {
+          var title = document.createElement("p");
+          title.className = "contact-title";
+          title.textContent = contact.title;
+          info.appendChild(title);
+        }
+        wrapper.appendChild(info);
+
+        if (contact.phones.length > 0) {
+          var phones = document.createElement("div");
+          phones.className = "phones";
+          contact.phones.forEach(function (phone) {
+            var link = document.createElement("a");
+            link.className = "phone-link";
+            link.href = "tel:" + phone.dialable;
+            link.setAttribute(
+              "aria-label",
+              "Call " + contact.name + " " + phone.label + " " + phone.display,
+            );
+
+            var left = document.createElement("span");
+            left.className = "phone-meta";
+            var label = document.createElement("span");
+            label.className = "phone-label";
+            label.textContent = phone.label;
+            left.appendChild(label);
+            if (phone.note) {
+              var note = document.createElement("span");
+              note.className = "phone-note";
+              note.textContent = phone.note;
+              left.appendChild(note);
+            }
+
+            var number = document.createElement("span");
+            number.className = "phone-number";
+            number.textContent = phone.display;
+
+            link.appendChild(left);
+            link.appendChild(number);
+            phones.appendChild(link);
+          });
+          wrapper.appendChild(phones);
+        }
+
+        return wrapper;
+      }
+
+      function renderContacts(contacts, query) {
+        var list = document.getElementById("contact-list");
+        var emptyMessage = document.getElementById("empty-message");
+        list.textContent = "";
+
+        var matches = contacts.filter(function (contact) {
+          return contact.searchText.indexOf(query) !== -1;
+        });
+
+        matches.forEach(function (contact) {
+          list.appendChild(buildContactElement(contact));
+        });
+        emptyMessage.hidden = matches.length > 0;
+      }
+
+      function start() {
+        var contacts;
+        try {
+          contacts = prepareContacts(loadContacts());
+        } catch (error) {
+          var errorBox = document.getElementById("load-error");
+          errorBox.textContent =
+            "The contact data could not be read. Check the JSON in this file.";
+          errorBox.hidden = false;
+          return;
+        }
+
+        var input = document.getElementById("search-input");
+        var clearButton = document.getElementById("clear-button");
+
+        function update() {
+          var query = input.value.trim().toLowerCase();
+          clearButton.hidden = input.value.length === 0;
+          renderContacts(contacts, query);
+        }
+
+        input.addEventListener("input", update);
+        clearButton.addEventListener("click", function () {
+          input.value = "";
+          update();
+          input.focus();
+        });
+
+        update();
+      }
+
+      start();
+    </script>
+  </body>
+</html>
